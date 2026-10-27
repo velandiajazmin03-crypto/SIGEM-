@@ -1,0 +1,91 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "nombre": "Administrador General",
+      "rol": "admin"
+    }
+  ],
+  "equipos": [
+    {
+      "id": 1,
+      "codigo_inventario": "EQ-001",
+      "nombre": "PC All-in-One HP",
+      "marca": "HP",
+      "modelo": "ProOne 440 G6",
+      "serial": "MXL12345AB",
+      "procesador": "Intel Core i5-10500T",
+      "ram": "8 GB DDR4",
+      "disco_duro": "256 GB SSD",
+      "sistema_operativo": "Windows 11 Pro",
+      "estado": "Excelente",
+      "ubicacion": "Laboratorio 1",
+      "observaciones": "Equipo de uso estudiantil para desarrollo de software.",
+      "fecha_registro": "2026-08-06T13:09:49.073Z"
+    },
+    {
+      "id": 2,
+      "codigo_inventario": "EQ-002",
+      "nombre": "Computador de Torre Dell",
+      "marca": "Dell",
+      "modelo": "OptiPlex 3080",
+      "serial": "DELL8877XX",
+      "procesador": "Intel Core i3-10100",
+      "ram": "16 GB DDR4",
+      "disco_duro": "1 TB HDD",
+      "sistema_operativo": "Windows 10 Pro",
+      "estado": "Bueno",
+      "ubicacion": "Biblioteca",
+      "observaciones": "Equipo asignado para consultas generales en biblioteca.",
+      "fecha_registro": "2026-08-06T13:09:49.073Z"
+    },
+    {
+      "id": 3,
+      "codigo_inventario": "EQ-003",
+      "nombre": "Portatil Lenovo ThinkPad",
+      "marca": "Lenovo",
+      "modelo": "L14 Gen 2",
+      "serial": "LNV443322Z",
+      "procesador": "AMD Ryzen 5 5650U",
+      "ram": "16 GB DDR4",
+      "disco_duro": "512 GB SSD",
+      "sistema_operativo": "Ubuntu Linux 22.04",
+      "estado": "Falla",
+      "ubicacion": "Sala de Profesores",
+      "observaciones": "El equipo no enciende la pantalla, se sospecha de falla en flex de video.",
+      "fecha_registro": "2026-08-06T13:09:49.073Z"
+    }
+  ],
+  "fallas": [
+    {
+      "id": 1,
+      "equipo_id": 3,
+      "descripcion": "El computador no enciende la pantalla al presionar el botón de encendido. El led de energía parpadea.",
+      "fecha_reporte": "2026-08-06T13:09:49.073Z",
+      "estado_reparacion": "Reportado",
+      "responsable": "Ing. Carlos Mendoza"
+    }
+  ],
+  "mantenimientos": [
+    {
+      "id": 1,
+      "equipo_id": 1,
+      "tipo": "Preventivo",
+      "descripcion": "Limpieza general de polvo interno, cambio de pasta térmica del procesador y soplado de ventiladores.",
+      "fecha_mantenimiento": "2026-08-06T13:09:49.073Z",
+      "responsable": "Téc. Laura Gómez",
+      "costo": 15
+    },
+    {
+      "id": 2,
+      "equipo_id": 2,
+      "tipo": "Correctivo",
+      "descripcion": "Cambio de fuente de poder dañada por picos de energía. Se instaló fuente genérica de 400W.",
+      "fecha_mantenimiento": "2026-08-06T13:09:49.073Z",
+      "responsable": "Ing. Carlos Mendoza",
+      "costo": 45
+    }
+  ]
+}
