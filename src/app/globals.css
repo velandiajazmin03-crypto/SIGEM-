@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   SIGEM · Tokens de tema (oscuro / claro / daltónico)
+   El <html> siempre lleva una de "dark"/"light", y opcionalmente "cvd".
+   Estas variables alimentan la escala "slate" y el paso "400" de cada acento
+   en tailwind.config.ts, así que todo el sitio ya construido responde al
+   cambio de tema sin tocar cada archivo de componente.
+   ============================================================================ */
+
+:root {
+  --background: 224 71.4% 4.1%;
+  --foreground: 210 20% 98%;
+  --card: 224 71.4% 4.1%;
+  --card-foreground: 210 20% 98%;
+  --popover: 224 71.4% 4.1%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 263.4 70% 50.4%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 215 27.9% 16.9%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 217.9 10.6% 64.9%;
+  --accent: 215 27.9% 16.9%;
+  --accent-foreground: 210 20% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+  --ring: 263.4 70% 50.4%;
+  --radius: 0.75rem;
+}
+
+/* ---------- Modo oscuro (look actual, sin cambios visuales) ---------- */
+.dark {
+  --ink: 255 255 255;
+
+  --slate-50: 248 250 252;
+  --slate-100: 241 245 249;
+  --slate-200: 226 232 240;
+  --slate-300: 203 213 225;
+  --slate-400: 148 163 184;
+  --slate-500: 100 116 139;
+  --slate-600: 71 85 105;
+  --slate-700: 51 65 85;
+  --slate-800: 30 41 59;
+  --slate-850: 15 23 42;
+  --slate-900: 15 23 42;
+  --slate-950: 2 6 23;
+
+  --indigo-400: 129 140 248;
+  --cyan-400: 34 211 238;
+  --rose-400: 251 113 133;
+  --emerald-400: 52 211 153;
+  --amber-400: 251 191 36;
+  --violet-400: 167 139 250;
+  --blue-400: 96 165 250;
+  --purple-400: 192 132 252;
+  --pink-400: 244 114 182;
+  --fuchsia-400: 232 121 249;
+
+  --page-bg: 11 15 25; /* #0b0f19 */
+  --mesh-1: 79 70 229;
+  --mesh-2: 147 51 234;
+  --mesh-3: 219 39 119;
+  --glass-bg: 15 23 42;
+  --glass-border: 255 255 255;
+  --glass-card-bg: 30 41 59;
+}
+
+/* Daltónico + oscuro: separa más el verde (→ teal) del rojo (→ naranja) */
+.dark.cvd {
+  --emerald-400: 45 212 191;
+  --rose-400: 251 146 60;
+}
+
+/* ---------- Modo claro (escala "slate" espejada + acentos oscurecidos) ---------- */
+.light {
+  --ink: 15 23 42;
+
+  --slate-50: 15 23 42;
+  --slate-100: 15 23 42;
+  --slate-200: 30 41 59;
+  --slate-300: 51 65 85;
+  --slate-400: 71 85 105;
+  --slate-500: 100 116 139;
+  --slate-600: 100 116 139;
+  --slate-700: 148 163 184;
+  --slate-800: 226 232 240;
+  --slate-850: 235 240 245;
+  --slate-900: 248 250 252;
+  --slate-950: 255 255 255;
+
+  --indigo-400: 79 70 229;
+  --cyan-400: 14 116 144;
+  --rose-400: 225 29 72;
+  --emerald-400: 4 120 87;
+  --amber-400: 146 64 14;
+  --violet-400: 124 58 237;
+  --blue-400: 37 99 235;
+  --purple-400: 126 34 206;
+  --pink-400: 190 24 93;
+  --fuchsia-400: 162 28 175;
+
+  --page-bg: 255 255 255;
+  --mesh-1: 199 210 254;
+  --mesh-2: 221 214 254;
+  --mesh-3: 251 207 232;
+  --glass-bg: 255 255 255;
+  --glass-border: 15 23 42;
+  --glass-card-bg: 248 250 252;
+}
+
+/* Daltónico + claro: mismo criterio, ajustado para contraste sobre blanco */
+.light.cvd {
+  --emerald-400: 15 118 110;
+  --rose-400: 194 65 12;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: rgb(var(--page-bg));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Estilos de Scrollbar Premium */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--slate-950));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--slate-800));
+  border-radius: 9999px;
+  border: 2px solid rgb(var(--slate-950));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--slate-700));
+}
+
+/* Gradientes animadas para fondos */
+.bg-gradient-mesh {
+  background-color: rgb(var(--page-bg));
+  background-image:
+    radial-gradient(at 10% 20%, rgb(var(--mesh-1) / 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgb(var(--mesh-2) / 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgb(var(--mesh-3) / 0.08) 0px, transparent 50%);
+}
+
+.glassmorphism {
+  background: rgb(var(--glass-bg) / 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgb(var(--glass-border) / 0.05);
+}
+
+.glassmorphism-card {
+  background: rgb(var(--glass-card-bg) / 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgb(var(--glass-border) / 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glassmorphism-card:hover {
+  background: rgb(var(--glass-card-bg) / 0.6);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Clases específicas para Impresión (Hoja de Vida y Reportes) */
+@media print {
+  /* Ocultar elementos interactivos y de navegación */
+  aside,
+  nav,
+  header,
+  footer,
+  .no-print,
+  button,
+  .btn,
+  .action-buttons,
+  .filter-bar,
+  .modal-overlay,
+  .alert-banner {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+    font-family: 'Segoe UI', Roboto, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2cm !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  /* Asegurar que las tablas de reportes y las celdas se vean bien en PDF */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+  }
+
+  th, td {
+    border: 1px solid #ddd !important;
+    padding: 8px !important;
+    text-align: left !important;
+    color: black !important;
+  }
+
+  th {
+    background-color: #f2f2f2 !important;
+    color: black !important;
+    font-weight: bold !important;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9 !important;
+  }
+
+  /* Estilos específicos para la Hoja de Vida en impresión */
+  .print-header {
+    border-bottom: 2px solid #3b82f6 !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .print-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .print-label {
+    font-weight: bold !important;
+    color: #4b5563 !important;
+  }
+
+  .print-value {
+    color: black !important;
+  }
+
+  /* Estilos de bordes y separadores para impresión */
+  .print-section {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 4px !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-title {
+    color: #1e3a8a !important;
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    margin-top: 0 !important;
+  }
+}

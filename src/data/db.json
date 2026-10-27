@@ -1,0 +1,42 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "nombre": "Administrador General",
+      "rol": "admin"
+    }
+  ],
+  "equipos": [
+    {
+      "id": 2,
+      "codigo_inventario": "No visible",
+      "nombre": "Equipo 1",
+      "marca": "PC Smart",
+      "modelo": "PCSMART",
+      "serial": "No visible ",
+      "procesador": "Intel(R)core(TM)¡7-4710MQCPU@2.50GH2",
+      "ram": "8,00GB",
+      "disco_duro": "465GB",
+      "sistema_operativo": "Windows 10 Home ",
+      "estado": "Falla",
+      "ubicacion": "Cupavita",
+      "observaciones": "",
+      "fecha_registro": "2026-08-06T13:09:49.073Z",
+      "foto_url": null
+    }
+  ],
+  "fallas": [],
+  "mantenimientos": [
+    {
+      "id": 2,
+      "equipo_id": 2,
+      "tipo": "Correctivo",
+      "descripcion": "Cambio de fuente de poder dañada por picos de energía. Se instaló fuente genérica de 400W.",
+      "fecha_mantenimiento": "2026-08-06T13:09:49.073Z",
+      "responsable": "Ing. Carlos Mendoza",
+      "costo": 45
+    }
+  ]
+}
